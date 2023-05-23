@@ -41,6 +41,8 @@ let btn = document.querySelector(".generate");
 
 btn.addEventListener("click", function(){
   body.style.background = `linear-gradient(to right, ${rgbGenerator()} , ${rgbGenerator()})`;
+  hexCss.textContent = `linear-gradient(to right, ${rgbGenerator()} , ${rgbGenerator()})`;
+  rgbaCss.textContent = body.style.background
 })
 
 
