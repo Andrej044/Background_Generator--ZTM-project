@@ -12,8 +12,10 @@ rgb = rgb.replace(/[^\d,]/g, '').split(',');
 color1.value = rgbToHex(Number(rgb[1]), Number(rgb[2]), Number(rgb[3]));
 color2.value = rgbToHex(Number(rgb[4]), Number(rgb[5]), Number(rgb[6]));
 
+hexCss.textContent = `linear-gradient(to right, ${color1.value} , ${color2.value})`;
+
 function componentToHex(c) {
-  var hex = c.toString(16);
+  let hex = c.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
 }
 
@@ -21,7 +23,6 @@ function rgbToHex(r, g, b) {
   return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 //end
-
 
 
 function getInputValue(){
@@ -32,3 +33,21 @@ function getInputValue(){
 
 color1.addEventListener("input", getInputValue);
 color2.addEventListener("input", getInputValue);
+
+
+//Random Genarator linear background
+
+let btn = document.querySelector(".generate");
+
+btn.addEventListener("click", function(){
+  body.style.background = `linear-gradient(to right, ${rgbGenerator()} , ${rgbGenerator()})`;
+})
+
+
+function generateRandomNumber(){
+  let number= Math.floor(Math.random() * (255 - 0) + 0) ;
+  return number
+}
+function rgbGenerator(){
+  return `rgb(${generateRandomNumber()}, ${generateRandomNumber()}, ${generateRandomNumber()})`;
+}
