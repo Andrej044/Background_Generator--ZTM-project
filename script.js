@@ -14,7 +14,6 @@ color2.value = rgbToHex(Number(rgb[4]), Number(rgb[5]), Number(rgb[6]));
 
 function componentToHex(c) {
   var hex = c.toString(16);
-  console.log(hex)
   return hex.length == 1 ? "0" + hex : hex;
 }
 
